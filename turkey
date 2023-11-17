@@ -1,0 +1,77 @@
+var CENTER_X = (getWidth() / 2);
+var CENTER_Y = (getHeight() / 2);
+var BG_COLOR = new Color(170, 130, 90);
+var BORDER_COLOR = new Color(140, 100, 60)
+var TURKEY_BODY = new Color(100, 80, 70);
+var TREE_COLOR = new Color(90, 70, 60);
+
+function start() {
+    mouseClickMethod(tree);
+    main();
+}    
+
+function main() {
+    var border = new Rectangle(getWidth(), getHeight());
+    border.setPosition(0,0);
+    border.setColor(BORDER_COLOR);
+    add(border);
+    
+    var background = new Rectangle(getWidth() - 20, getHeight() - 20);
+    background.setPosition(10, 10);
+    background.setColor(BG_COLOR);
+    add(background);
+    
+    var body = new Polygon();
+    //neck
+    body.addPoint(150, 147);
+    body.addPoint(133, 140);
+    body.addPoint(123, 130);
+    //head
+    body.addPoint(113, 125);
+    body.addPoint(93, 132);
+    body.addPoint(85, 165);
+    //neck
+    body.addPoint(98, 153);
+    body.addPoint(90, 170);
+    body.addPoint(93, 175);
+    body.addPoint(100, 200);
+    //breastbone
+    body.addPoint(150, 250);
+    //leg
+    body.addPoint(210, 290);
+    body.addPoint(190, 340);
+    //foot
+    body.addPoint(170, 340);
+    body.addPoint(165, 345);
+    body.addPoint(220, 345);
+    //leg
+    body.addPoint(200, 340);
+    body.addPoint(230, 300);
+    //tail
+    body.addPoint(250, 250);
+    body.addPoint(350, 200);
+    body.addPoint(300, 100);
+    body.addPoint(250, 150);
+    //back
+    body.addPoint(200, 130);
+    body.setColor(TURKEY_BODY);
+    add(body);
+    
+}
+
+function tree(e){
+    var tree = new Polygon();
+    tree.addPoint(e.getX() - 10, e.getY());
+    tree.addPoint(e.getX() - 20, e.getY());
+    tree.addPoint(e.getX(), e.getY() - 20);
+    tree.addPoint(e.getX() + 20, e.getY());
+    tree.addPoint(e.getX() + 10, e.getY());
+    tree.addPoint(e.getX() + 20, e.getY() + 20);
+    tree.addPoint(e.getX() + 5, e.getY() + 20);
+    tree.addPoint(e.getX() + 5, e.getY() +30);
+    tree.addPoint(e.getX() - 5, e.getY() +30);
+    tree.addPoint(e.getX() - 5, e.getY() + 20);
+    tree.addPoint(e.getX() - 20, e.getY() + 20);
+    tree.setColor(TREE_COLOR);
+    add(tree);
+}
